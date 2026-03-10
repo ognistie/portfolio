@@ -1,11 +1,7 @@
 # portfolio
 ✦ Site profissional de @ognistie · Automação &amp; Cloud · Minimalista, responsivo e sem frameworks
 
-<div align="center">
 
-<img src="assets/banner.png" alt="Guilherme Moraes Franco — Banner" width="100%"/>
-
-<br/>
 
 # 🌐 Portfólio Pessoal · ognistie
 

@@ -1,173 +1,60 @@
-# Portfolio
-✦ Site profissional de @ognistie · Automação &amp; Cloud · Minimalista, responsivo e sem frameworks
+# Guilherme Moraes Franco · Portfólio
 
+Portfólio de Guilherme Moraes Franco, AI Engineer no Grupo Papaki, com visual de limbo inspirado no Xbox 360: dashboard, painéis verdes, seleção de personagens, névoa e navegação com brilho. Os textos apresentam perfil, projetos e competências com linguagem profissional e técnica.
 
+## Abrir
 
-# 🌐 Portfólio Pessoal · ognistie
+Abra `index.html` diretamente no navegador. As imagens, os ícones e os dados são locais; não há dependências de produção, fontes externas, analytics ou backend.
 
-**Site profissional de Guilherme Moraes Franco**  
-Cloud · DevOps · Automação · Suporte Técnico
+Para servir por HTTP, com Node.js instalado:
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-222?style=flat-square&logo=github)](https://ognistie.github.io/Projeto-Pessoal/)
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
-[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
-[![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)](LICENSE)
-
-</div>
-
----
-
-## 📋 Sobre o Projeto
-
-Portfolio pessoal *one-page* desenvolvido com **HTML5, CSS3 e JavaScript puro** — sem frameworks, sem dependências externas. Design **minimalista e clean** com efeito **glassmorphism**, paleta em tons de cinza e tipografia moderna.
-
-> *"Transformando infraestrutura em código e processos em automação."*
-
----
-
-## ✨ Funcionalidades
-
-- **Design Responsivo** — adaptado para mobile, tablet e desktop
-- **Glassmorphism** — cards com efeito vidro (`backdrop-filter: blur`)
-- **Scroll Reveal** — animações de entrada suaves com `IntersectionObserver`
-- **Navbar Inteligente** — link ativo por seção + sombra no scroll
-- **Tilt 3D** — efeito sutil nos cards ao mover o mouse
-- **Contadores Animados** — números do hero animados com ease-out cúbico
-- **Menu Mobile** — hambúrguer animado com toggle suave
-- **Smooth Scroll** — rolagem suave com offset para navbar fixa
-- **Fallback de Imagens** — exibe placeholder se assets não encontrados
-
----
-
-## 🗂️ Estrutura de Arquivos
-
-```
-📁 Projeto-Pessoal/
-│
-├── 📄 index.html          # Estrutura HTML semântica
-├── 🎨 style.css           # Estilos, glassmorphism e animações
-├── ⚙️  script.js           # Interatividade e comportamentos
-├── 📄 README.md           # Este arquivo
-│
-└── 📁 assets/
-     ├── 🖼️  banner.png     # Banner hero (1500×500px recomendado)
-     └── 🖼️  profile.png    # Foto de perfil (400×400px recomendado)
+```sh
+node scripts/dev-server.mjs
 ```
 
----
+Abra http://127.0.0.1:4173. Para mudar a porta, defina a variável de ambiente `PORT` antes de iniciar o servidor.
 
-## 🎨 Design System
+## Páginas e navegação
 
-| Token | Valor | Uso |
-|-------|-------|-----|
-| `--bg` | `#F4F4F4` | Fundo principal |
-| `--bg-alt` | `#EEEEEE` | Fundo seções alternadas |
-| `--txt` | `#2D2D2D` | Texto principal |
-| `--txt2` | `#666666` | Texto secundário |
-| `--border` | `#E0E0E0` | Bordas e divisores |
-| `--glass` | `rgba(255,255,255,0.58)` | Background dos cards |
-| `--sh-md` | `0 6px 28px rgba(0,0,0,0.08)` | Sombra padrão |
+- Início: perfil atualizado, dashboard, projetos em destaque e personagens selecionáveis.
+- Projetos: seis projetos reais com objetivo, arquitetura, decisões e escopo: AI Farm Agent, AI Virtual Mouse Controller, Decupa, ognistie.skills, CloudOps Copilot e SkateRoom.
+- Sobre: perfil, experiência, formação e stack; `#stack` abre diretamente as tecnologias.
+- Conquistas: 13 credenciais das capturas, 11 badges oficiais e dois símbolos de emissores, além dos 12 cursos preservados do portfólio original.
+- Contato: e-mail, LinkedIn, GitHub, currículo e cópia do e-mail com recuperação em caso de bloqueio.
 
-**Fontes:** [Montserrat](https://fonts.google.com/specimen/Montserrat) (peso 300–900) + [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) (labels e código)
+Use Tab e Enter nos controles. Na seleção de personagens, as setas, Home e End movem o foco. Escape fecha os modais. A navegação complementar também funciona com teclado e toque. A interface respeita a preferência por movimento reduzido.
 
----
+## Currículo
 
-## 📱 Seções
+`curriculo.html` é a versão responsiva e editável; `assets/curriculo-guilherme-moraes-franco.pdf` é o PDF de duas páginas. A página oferece impressão e download. O cargo atual foi atualizado pelo README público do perfil GitHub para AI Engineer no Grupo Papaki; a experiência na IT Universe foi preservada sem períodos inventados. O LinkedIn limitou a leitura pública na consulta de 3 de novembro de 2026.
 
-| # | Seção | Descrição |
-|---|-------|-----------|
-| 🏠 | **Hero** | Nome, cargo, card estilo GitHub com banner e avatar |
-| 01 | **Sobre** | Bio profissional + card de informações |
-| 02 | **Stack** | Tecnologias em cards glassmorphism com hover 3D |
-| 03 | **Projetos** | Cards horizontais linkados ao GitHub |
-| 04 | **Cursos** | Grid de certificações com badges por instituição |
-| 05 | **Contato** | Links para e-mail, LinkedIn e GitHub |
+Os dados das credenciais são compartilhados por `portfolio-data.js`. Após editar os dados ou o currículo, gere novamente o PDF para manter os formatos sincronizados.
 
----
+## Estrutura
 
-## 🚀 Como Usar Localmente
-
-```bash
-# 1. Clone o repositório
-git clone https://github.com/ognistie/Projeto-Pessoal.git
-
-# 2. Acesse a pasta
-cd Projeto-Pessoal
-
-# 3. Abra no navegador
-# — Arraste o index.html para o browser, ou
-# — Use o Live Server (VS Code) para hot reload
+```text
+index.html / style.css / script.js   Interface do portfólio
+portfolio-data.js                    Projetos, credenciais e cursos
+curriculo.html / .css / .js           Currículo e impressão
+assets/                              Imagens locais, badges e PDF
+docs/design-and-sources.md            Direção visual, fontes e prompts
+scripts/                             Servidor, preparação de assets e verificações
+tmp/                                 Renders e pesquisa local; ignorados pelo Git
 ```
 
-> **Sem dependências!** Não é necessário `npm install` nem nenhuma configuração extra.
+## Verificações e manutenção
 
----
+Os scripts de desenvolvimento usam `playwright` e `sharp` quando necessários. Eles procuram instalações locais e, no ambiente Codex, as bibliotecas do runtime fornecido. Fora dele, instale esses pacotes para executar os scripts; o site publicado não precisa deles. `CODEX_RUNTIME_NODE_MODULES` pode apontar para outra pasta de bibliotecas. No Windows, os scripts usam o Chrome instalado no caminho padrão; em outros sistemas, usam o Chromium do Playwright.
 
-## 🌍 Deploy no GitHub Pages
-
-1. Vá em **Settings → Pages** no repositório
-2. Em *Branch*, selecione `main` e pasta `/ (root)`
-3. Clique em **Save**
-4. Aguarde ~1 minuto e acesse:
-
-```
-https://ognistie.github.io/Projeto-Pessoal/
+```sh
+node scripts/verify.mjs
+node scripts/generate-resume.mjs
 ```
 
----
+`scripts/render-resume.py` usa `pypdf` e `pypdfium2` para validar e renderizar o PDF exportado. O relatório e os screenshots ficam em `tmp/verification`. O teste pode usar HTTP definindo `PORTFOLIO_TEST_URL`; por padrão usa arquivos locais.
 
-## 🖼️ Personalizando as Imagens
+Os badges de catálogo indicam o programa, sem substituir a validação pessoal das credenciais. Veja as fontes e a distinção entre badges e símbolos em [docs/design-and-sources.md](docs/design-and-sources.md).
 
-Para atualizar as imagens, substitua os arquivos na pasta `assets/`:
+## Publicação
 
-| Arquivo | Tamanho recomendado | Dica |
-|---------|---------------------|------|
-| `banner.png` | 1500 × 500 px | Usado como fundo do card hero |
-| `profile.png` | 400 × 400 px | PNG com fundo transparente fica melhor |
-
----
-
-## ⚙️ JavaScript — Módulos
-
-O `script.js` é organizado em **7 IIFEs independentes**:
-
-```
-1. initNavbar()     → Scroll shadow + active link + hamburger mobile
-2. initReveal()     → Scroll reveal com stagger por data-delay
-3. initSmoothScroll()→ Smooth scroll com offset para nav fixa
-4. initTilt()       → Tilt 3D nos cards ao mover o mouse
-5. initCounters()   → Contadores animados com ease-out cúbico
-6. initLinkHints()  → Cursor pointer nos cards clicáveis
-7. initImageFallbacks()→ Fallback se assets não encontrados
-```
-
----
-
-## 🛠️ Stack Tecnológica do Site
-
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
----
-
-## 📬 Contato
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/guilherme-moraes-franco-b4b1a0353/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ognistie)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:og.guifranco@gmail.com)
-
-**Guilherme Moraes Franco** · @ognistie · Osasco, SP — Brasil
-
-</div>
-
----
-
-<div align="center">
-
-Feito com ☕ e muito código por **Guilherme Moraes Franco**
-
-</div>
+Compatível com hospedagem estática, inclusive GitHub Pages. Publique os arquivos da raiz, `assets/` e os arquivos do currículo. Não há etapa de build. Nenhuma publicação é feita pelos scripts de verificação.

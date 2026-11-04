@@ -50,7 +50,7 @@ body:has(.inner-page:not([hidden])) .world::after {
 .chevron { font-size: 20px; margin-left: 12px; }
 .eyebrow { font-size: 10px; letter-spacing: 2.4px; color: #d8e8cd; font-weight: 600; margin-bottom: 11px; }
 .home-heading { display: flex; justify-content: space-between; align-items: end; padding: 34px 0 27px; gap: 25px; }
-.home h1 { font-size: clamp(24px, 2.3vw, 34px); font-weight: 600; letter-spacing: -1.2px; font-style: italic; text-shadow: 0 2px 20px #0002; line-height: 1.16; }
+.home h1 { font-size: clamp(18px, 1.65vw, 24px); font-weight: 600; line-height: 1.25; }
 .home-subtitle { font-size: 15px; letter-spacing: 1.4px; color: #e0e1e5; margin-top: 10px; font-weight: 350; }
 .home-description { font-size: 12px; line-height: 1.8; max-width: 770px; color: #e1e4e6; margin-top: 10px; }
 .session-label { font-size: 10px; letter-spacing: .6px; color: #e2e8e5; padding-bottom: 4px; white-space: nowrap; }
@@ -225,7 +225,6 @@ body:has(.inner-page:not([hidden])) .world::after {
   .brand img { width: 29px; height: 29px; }
   .profile-link { display: none; }
   .home-heading { padding-top: 30px; }
-  .home h1 { font-size: 28px; }
   .home-subtitle { font-size: 11px; letter-spacing: .7px; }
   .home-description { font-size: 11px; }
   .eyebrow { font-size: 8px; }
@@ -257,7 +256,6 @@ body:has(.inner-page:not([hidden])) .world::after {
   .navigation a { font-size: 13px; }
   .navigation a[aria-current]:after { bottom: 10px; }
   .home-heading { padding: 26px 0 23px; }
-  .home h1 { font-size: 24px; max-width: 310px; line-height: 1.2; }
   .home-subtitle { font-size: 10px; letter-spacing: .2px; line-height: 1.8; max-width: 310px; }
   .home-description { font-size: 10px; line-height: 1.8; max-width: 350px; }
   .quick-tile { padding: 8px; gap: 7px; font-size: 11px; }
@@ -433,13 +431,14 @@ body:has(.inner-page:not([hidden])) .world::after {
   .tile-u20 .tile-topline { display: none; }
 }
 @media (min-width: 1001px) {
-  .landscape-stage { padding-top: clamp(8px, 2vh, 24px); min-height: 49vh; }
+  .home-heading { padding-block: clamp(16px, 2.6vh, 34px) 18px; }
+  .landscape-stage { min-height: 46vh; }
   .landscape-stage .dashboard {
-    width: min(84%, 1360px);
-    margin-inline: 4% auto;
-    height: clamp(300px, 34vh, 385px);
-    grid-template-columns: minmax(0, .72fr) minmax(0, 2.5fr) minmax(0, 1.4fr);
-    grid-template-rows: minmax(0, 2.4fr) minmax(84px, 1fr);
+    width: clamp(680px, 58%, 850px);
+    margin-inline: 12% auto;
+    height: clamp(330px, 39vh, 450px);
+    grid-template-columns: minmax(108px, 1fr) minmax(0, 3.4fr) minmax(0, 1.85fr);
+    grid-template-rows: minmax(0, 2.15fr) minmax(96px, 1fr);
     gap: 7px;
   }
   .landscape-stage .quick-links { gap: 4px; }

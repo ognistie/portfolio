@@ -54,7 +54,7 @@ try{
  await page.keyboard.press('Escape');check(!(await page.locator('#project-dialog').isVisible()),'Escape closes modal');check(await farm.evaluate(el=>document.activeElement===el),'Focus restored to opener');
  check((await page.locator('.avatar-choice,.controller-key').count())===0,'Removed home sections');
  check(await page.locator('#sobre .player-card img').isVisible()===false,'Profile page initially hidden');
- check(!(await page.locator('.home-heading').innerText()).includes('Engenharia de sistemas'),'Intro copy removed from the dashboard');
+ check((await page.locator('.home-heading').innerText()).includes('Engenharia de sistemas'),'Home intro is visible');
  await page.locator('.tile-mouse').focus();await page.keyboard.press('Enter');check(await page.locator('#project-dialog').isVisible(),'Keyboard activates featured project');await page.keyboard.press('Escape');
  await route('projetos');await page.locator('[data-filter="ai"]').click();check((await page.locator('.library-card:visible').count())===6,'AI filter');await page.locator('[data-filter="cloud"]').click();check((await page.locator('.library-card:visible').count())===3,'Cloud filter');await page.locator('[data-filter="all"]').click();check((await page.locator('.library-card:visible').count())===9,'All projects restored');
  check((await images()).length===0 && (await page.locator('.project-cover:visible').count())===9,'Project covers loaded');

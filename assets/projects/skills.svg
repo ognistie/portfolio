@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540">
+  <rect width="960" height="540" fill="#172632"/>
+  <path d="M0 460h960M0 80h960" stroke="#36535d"/>
+  <g fill="#d9eee7" font-family="system-ui, sans-serif">
+    <text x="80" y="154" font-size="23" fill="#a7cf91">ROTEAMENTO DE MODELOS</text>
+    <text x="80" y="237" font-size="64" font-weight="650">ognistie.skills</text>
+    <text x="80" y="300" font-size="28">Escopo, risco e custo na escolha do modelo</text>
+  </g>
+  <g stroke="#a7cf91" fill="#233845" stroke-width="2">
+    <path d="M202 393h556"/>
+    <circle cx="202" cy="393" r="17"/><circle cx="480" cy="393" r="17"/><circle cx="758" cy="393" r="17"/>
+  </g>
+</svg>

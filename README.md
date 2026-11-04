@@ -1,6 +1,6 @@
 # Guilherme Moraes Franco · Portfólio
 
-Portfólio de Guilherme Moraes Franco, AI Engineer no Grupo Papaki, com visual de limbo inspirado no Xbox 360: dashboard, painéis verdes, seleção de personagens, névoa e navegação com brilho. Os textos apresentam perfil, projetos e competências com linguagem profissional e técnica.
+Portfólio de Guilherme Moraes Franco, AI Engineer no Grupo Papaki, com uma paisagem de névoa, painéis verdes e um dashboard de projetos com imagens e demonstrações.
 
 ## Abrir
 
@@ -16,13 +16,13 @@ Abra http://127.0.0.1:4173. Para mudar a porta, defina a variável de ambiente `
 
 ## Páginas e navegação
 
-- Início: perfil atualizado, dashboard, projetos em destaque e personagens selecionáveis.
-- Projetos: seis projetos reais com objetivo, arquitetura, decisões e escopo: AI Farm Agent, AI Virtual Mouse Controller, Decupa, ognistie.skills, CloudOps Copilot e SkateRoom.
+- Início: perfil profissional e painel ampliado com AI Virtual Mouse Controller, AI Farm Agent e U20 Invest em destaque.
+- Projetos: oito projetos com capa e descrição técnica, incluindo U20 Invest e AI Workbench. Os detalhes de U20 Invest e AI Virtual Mouse Controller incluem vídeo.
 - Sobre: perfil, experiência, formação e stack; `#stack` abre diretamente as tecnologias.
 - Conquistas: 13 credenciais das capturas, 11 badges oficiais e dois símbolos de emissores, além dos 12 cursos preservados do portfólio original.
 - Contato: e-mail, LinkedIn, GitHub, currículo e cópia do e-mail com recuperação em caso de bloqueio.
 
-Use Tab e Enter nos controles. Na seleção de personagens, as setas, Home e End movem o foco. Escape fecha os modais. A navegação complementar também funciona com teclado e toque. A interface respeita a preferência por movimento reduzido.
+Use Tab e Enter para navegar e abrir os detalhes dos projetos. Escape fecha o modal e pausa o vídeo. A interface respeita a preferência por movimento reduzido.
 
 ## Currículo
 

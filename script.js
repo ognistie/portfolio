@@ -22,7 +22,7 @@
  const tags=values=>`<div class="tags">${values.map(t=>`<span>${esc(t)}</span>`).join('')}</div>`;
  document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=icon(el.dataset.icon);});
  if(!data)return;
- document.querySelector('#project-library').innerHTML=data.projects.map(p=>`<article class="library-card" data-category="${p.category}"><div class="card-head">${icon(p.icon)}<span>${p.label}</span></div><h2>${esc(p.name)}</h2><p>${esc(p.summary)}</p><div class="card-bottom">${tags(p.tags)}<button class="card-open" data-project="${p.id}" aria-label="Explorar detalhes de ${esc(p.name)}">explorar ↗</button></div></article>`).join('');
+ document.querySelector('#project-library').innerHTML=data.projects.map(p=>`<article class="library-card" data-category="${p.category}"><img class="project-cover" src="${esc(p.image)}" alt="" loading="lazy" width="1400" height="788"><div class="card-head">${icon(p.icon)}<span>${p.label}</span></div><h2>${esc(p.name)}</h2><p>${esc(p.summary)}</p><div class="card-bottom">${tags(p.tags)}<button class="card-open" data-project="${p.id}" aria-label="Explorar detalhes de ${esc(p.name)}">explorar ↗</button></div></article>`).join('');
  document.querySelector('#certifications').innerHTML=data.certifications.map(c=>`<article class="glass cert-card" data-cert-issuer="${esc(c.issuer)}"><div class="badge-frame"><img src="assets/badges/${c.image}" width="58" height="65" loading="lazy" alt="${c.kind==='issuer'?'Símbolo de '+esc(c.issuer):'Badge de '+esc(c.name)}"><span class="issuer-fallback">${esc(c.issuer)}</span></div><div><p class="cert-issuer">${esc(c.issuer)}</p><h2>${esc(c.name)}</h2><p class="cert-date">${esc(c.date)}${c.expiry?' · validade: '+esc(c.expiry):''}${c.credential?'<br>ID: '+esc(c.credential):''}</p><a class="cert-link" href="${esc(c.url)}" target="_blank" rel="noopener noreferrer">${c.linkLabel||(c.kind==='issuer'?'Ver no LinkedIn':'Sobre o badge')} ↗</a>${c.kind==='issuer'?'<span class="badge-kind">Símbolo do emissor</span>':''}</div></article>`).join('');
  document.querySelector('#legacy-courses').innerHTML=data.courses.map(([name,issuer])=>`<article><h3>${esc(name)}</h3><p>${esc(issuer)}</p></article>`).join('');
  document.querySelectorAll('.badge-frame img').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;img.nextElementSibling.style.display='block';}));
@@ -54,10 +54,9 @@
  }));
 
  const projectDialog=document.querySelector('#project-dialog');
- const quickMenu=document.querySelector('#quick-menu');
  const dialogReturnFocus=new WeakMap();
  function openDialog(dialog){dialogReturnFocus.set(dialog,document.activeElement);dialog.showModal();document.body.classList.add('scroll-locked');dialog.scrollTop=0;}
- [projectDialog,quickMenu].forEach(dialog=>{
+ [projectDialog].forEach(dialog=>{
    dialog.querySelector('.close-dialog').addEventListener('click',()=>dialog.close());
    dialog.addEventListener('keydown',event=>{
      if(event.key!=='Tab')return;
@@ -67,31 +66,17 @@
      else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
    });
    dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
-   dialog.addEventListener('close',()=>{document.body.classList.remove('scroll-locked');const target=dialogReturnFocus.get(dialog);if(target?.isConnected&&!target.closest('[hidden]'))target.focus({preventScroll:true});});
+   dialog.addEventListener('close',()=>{dialog.querySelector('video')?.pause();document.body.classList.remove('scroll-locked');const target=dialogReturnFocus.get(dialog);if(target?.isConnected&&!target.closest('[hidden]'))target.focus({preventScroll:true});});
  });
  document.querySelectorAll('[data-project]').forEach(button=>button.addEventListener('click',()=>{
    const p=data.projects.find(p=>p.id===button.dataset.project);if(!p)return;
-   document.querySelector('#dialog-content').innerHTML=`<div class="dialog-hero">${icon(p.icon)}<p class="eyebrow">${p.label}</p><h2 id="dialog-title">${esc(p.name)}</h2><p>${esc(p.summary)}</p>${tags(p.tags)}${p.status?`<span class="project-status">${esc(p.status)}</span>`:''}</div><div class="dialog-body">${p.flow?`<div class="flow" aria-label="Fluxo de execução">${p.flow.map((s,i)=>(i?'<b aria-hidden="true">→</b>':'')+`<span>${esc(s)}</span>`).join('')}</div>`:''}${p.sections.map(s=>`<section><h3>${esc(s.title)}</h3>${s.text?`<p>${esc(s.text)}</p>`:`<ul>${s.items.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`}</section>`).join('')}<div class="dialog-links"><a class="button button-green" href="${p.repo}" target="_blank" rel="noopener noreferrer">Explorar repositório ↗</a><a class="button" href="${p.repo}#readme" target="_blank" rel="noopener noreferrer">Ler documentação ↗</a></div><p class="source-note">Detalhes técnicos e resultados reportados na documentação do projeto.</p></div>`;
+   const media = p.video
+     ? '<video controls playsinline preload="none" poster="'+esc(p.image)+'" src="'+esc(p.video)+'" aria-label="Demonstração de '+esc(p.name)+'"></video><a class="text-link" href="'+esc(p.video)+'" target="_blank" rel="noopener noreferrer">Abrir vídeo em outra aba ↗</a>'
+     : '<img src="'+esc(p.image)+'" alt="'+esc(p.imageAlt || 'Imagem do projeto '+p.name)+'">';
+   const repository = p.repo ? '<div class="dialog-links"><a class="button button-green" href="'+esc(p.repo)+'" target="_blank" rel="noopener noreferrer">Explorar repositório ↗</a></div>' : '';
+   document.querySelector('#dialog-content').innerHTML=`<div class="dialog-hero">${icon(p.icon)}<p class="eyebrow">${p.label}</p><h2 id="dialog-title">${esc(p.name)}</h2><p>${esc(p.summary)}</p>${tags(p.tags)}${p.status?`<span class="project-status">${esc(p.status)}</span>`:''}</div><div class="dialog-body"><div class="project-media">${media}</div>${p.flow?`<div class="flow" aria-label="Fluxo de execução">${p.flow.map((s,i)=>(i?'<b aria-hidden="true">→</b>':'')+`<span>${esc(s)}</span>`).join('')}</div>`:''}${p.sections.map(s=>`<section><h3>${esc(s.title)}</h3>${s.text?`<p>${esc(s.text)}</p>`:`<ul>${s.items.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>`}</section>`).join('')}${repository}</div>`;
    const back=document.createElement("button");back.className="button dialog-return";back.textContent="← Voltar ao portfólio";back.addEventListener("click",()=>projectDialog.close());document.querySelector(".dialog-body").append(back);
    openDialog(projectDialog);
  }));
- document.querySelector('#quick-menu-button').addEventListener('click',()=>openDialog(quickMenu));
- quickMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{quickMenu.close();if(a.hash===location.hash)route(true);}));
- const avatars=[...document.querySelectorAll('.avatar-choice')];
- function selectAvatar(button){
-   avatars.forEach(b=>{b.classList.toggle('is-selected',b===button);b.querySelector('.selected-label')?.remove();});
-   const label=document.createElement('span');label.className='selected-label';label.textContent='SELECIONADO';button.append(label);
- }
- avatars.forEach((button,index)=>{
-   button.addEventListener('pointerenter',()=>selectAvatar(button));
-   button.addEventListener('focus',()=>selectAvatar(button));
-   button.addEventListener('keydown',event=>{
-     if(!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;
-     event.preventDefault();
-     const next=event.key==='Home'?0:event.key==='End'?avatars.length-1:(index+(event.key==='ArrowRight'?1:-1)+avatars.length)%avatars.length;
-     avatars[next].focus();
-   });
-   if(button.dataset.destination)button.addEventListener('click',()=>{location.hash=button.dataset.destination;});
- });
  document.querySelector('#copy-email').addEventListener('click',async()=>{const feedback=document.querySelector('#copy-feedback');try{if(!navigator.clipboard)throw new Error('Clipboard unavailable');await navigator.clipboard.writeText('og.guifranco@gmail.com');feedback.textContent='E-mail copiado!';}catch{feedback.textContent='Copie manualmente: og.guifranco@gmail.com';}});
 })();

@@ -16,26 +16,31 @@ async function route(id){await page.evaluate(id=>{location.hash=id},id);await pa
 try{
  await page.goto(base);check((await page.locator('.page:visible').count())===1,'One page visible');check((await images()).length===0,'Home images available');
  await page.screenshot({path:path.join(out,'desktop.png'),fullPage:true});
+ await page.locator('.tile-u20').click();
+ const video=page.locator('#project-dialog video');
+ check(await video.isVisible(),'U20 film visible');
+ await video.evaluate(async el=>{el.muted=true;await el.play();});
+ await page.keyboard.press('Escape');
+ await page.waitForFunction(()=>document.querySelector('#project-dialog video').paused);
  const farm=page.locator('.tile-farm');await farm.click();check(await page.locator('#project-dialog').isVisible(),'Farm dialog opens');
  const farmText=await page.locator('#dialog-content').innerText();check(farmText.includes('Maestro')&&farmText.includes('Windows UI Automation')&&farmText.includes('Obsidian'),'Farm architecture present');check(!/fazenda|agroneg|agrícola/i.test(farmText),'Farm has no agricultural interpretation');check(farmText.includes('não testes executados por este portfólio'),'Published evaluation distinguished from executed checks');
  await page.screenshot({path:path.join(out,'farm-dialog.png'),fullPage:true});
  for(let i=0;i<8;i++){await page.keyboard.press('Tab');check(await page.evaluate(()=>document.activeElement.closest('#project-dialog')!==null),'Modal retains keyboard focus');}
  await page.keyboard.press('Escape');check(!(await page.locator('#project-dialog').isVisible()),'Escape closes modal');check(await farm.evaluate(el=>document.activeElement===el),'Focus restored to opener');
- check((await page.locator('.avatar-choice').count())===4&&(await page.locator('.controller-key').count())===3,'Original avatars and console controls restored');
+ check((await page.locator('.avatar-choice,.controller-key').count())===0,'Removed home sections');
  check(await page.locator('#sobre .player-card img').isVisible()===false,'Profile page initially hidden');
  check((await page.locator('#inicio').innerText()).includes('AI Engineer no Grupo Papaki'),'Current AI Engineering profile');
- const avatars=page.locator('.avatar-choice');await avatars.nth(0).focus();await page.keyboard.press('ArrowRight');check(await avatars.nth(1).evaluate(el=>el===document.activeElement),'Avatar arrow navigation restored');await page.keyboard.press('Enter');check(await page.locator('#project-dialog').isVisible(),'Enter activates selected avatar');await page.keyboard.press('Escape');
  await page.locator('.tile-mouse').focus();await page.keyboard.press('Enter');check(await page.locator('#project-dialog').isVisible(),'Keyboard activates featured project');await page.keyboard.press('Escape');
- await route('projetos');await page.locator('[data-filter="ai"]').click();check((await page.locator('.library-card:visible').count())===4,'AI filter');await page.locator('[data-filter="cloud"]').click();check((await page.locator('.library-card:visible').count())===2,'Cloud filter');await page.locator('[data-filter="all"]').click();check((await page.locator('.library-card:visible').count())===6,'All projects restored');
+ await route('projetos');await page.locator('[data-filter="ai"]').click();check((await page.locator('.library-card:visible').count())===5,'AI filter');await page.locator('[data-filter="cloud"]').click();check((await page.locator('.library-card:visible').count())===3,'Cloud filter');await page.locator('[data-filter="all"]').click();check((await page.locator('.library-card:visible').count())===8,'All projects restored');
+ check((await images()).length===0 && (await page.locator('.project-cover:visible').count())===8,'Project covers loaded');
  await page.screenshot({path:path.join(out,'projects.png'),fullPage:true});
- for(const id of ['mouse','farm','decupa','skills','cloud','skate']){await page.locator(`.card-open[data-project="${id}"]`).click();check(await page.locator('#project-dialog').isVisible(),`Library details ${id}`);await page.keyboard.press('Escape');}
+ for(const id of ['mouse','farm','decupa','skills','cloud','skate','u20','workbench']){await page.locator(`.card-open[data-project="${id}"]`).click();check(await page.locator('#project-dialog').isVisible(),`Library details ${id}`);await page.keyboard.press('Escape');}
  await route('conquistas');check((await page.locator('.cert-card').count())===13,'13 supplied credentials');check((await images()).length===0,'Credential badges loaded');
  for(const [issuer,count] of [['AWS',4],['Microsoft',2],['IBM',2],['other',5],['all',13]]){await page.locator(`[data-issuer="${issuer}"]`).click();check((await page.locator('.cert-card:visible').count())===count,`Credential filter ${issuer}`);}
  await page.screenshot({path:path.join(out,'certifications.png'),fullPage:true});
  await page.locator('.legacy-courses summary').click();check((await page.locator('#legacy-courses article:visible').count())===12,'Original courses preserved');
  await route('contato');await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async text=>{window.testCopiedEmail=text}}}));await page.locator('#copy-email').click();check((await page.locator('#copy-feedback').innerText()).includes('E-mail copiado')&&(await page.evaluate(()=>window.testCopiedEmail))==='og.guifranco@gmail.com','Clipboard success state');
  await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:()=>Promise.reject(new Error('denied'))}}));await page.locator('#copy-email').click();check((await page.locator('#copy-feedback').innerText()).includes('Copie manualmente'),'Clipboard failure recovery');
- await page.locator('#quick-menu-button').click();check(await page.locator('#quick-menu').isVisible(),'Quick menu opens');await page.locator('#quick-menu a[href="#sobre"]').click();await page.locator('#sobre').waitFor({state:'visible'});check(!(await page.locator('#quick-menu').isVisible()),'Quick menu navigation closes modal');
  await page.evaluate(()=>{location.hash='stack'});await page.locator('#stack').waitFor({state:'visible'});check(await page.locator('#sobre').isVisible(),'Stack deep link');
  await page.locator('#about-title').focus();await page.evaluate(()=>window.scrollTo(0,0));check(await page.locator('#sobre .player-card img').isVisible(),'Original profile avatar restored');check((await page.locator('#sobre').innerText()).includes('AI Engineer no Grupo Papaki'),'Professional profile copy retained');await page.screenshot({path:path.join(out,'about.png'),fullPage:true});
  const hashes=['inicio','projetos','sobre','conquistas','contato'];

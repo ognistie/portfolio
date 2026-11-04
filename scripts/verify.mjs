@@ -17,6 +17,21 @@ try{
  await page.goto(base);check((await page.locator('.page:visible').count())===1,'One page visible');check((await images()).length===0,'Home images available');
  const wallpaper = await page.locator('.world').evaluate(el => getComputedStyle(el).backgroundImage);
  check(wallpaper.includes('mountain-lake.png') && (wallpaper.match(/url\(/g) || []).length === 1,'New landscape is the only wallpaper');
+ check(await page.locator('#mouse-preview').evaluate(clip => clip.paused),'Reduced motion leaves the clip paused');
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ await page.reload();
+ await page.waitForFunction(() => {
+   const clip = document.querySelector('#mouse-preview');
+   return !clip.paused && clip.muted && clip.currentTime > 0;
+ });
+ await page.locator('#mouse-preview').evaluate(clip => { clip.currentTime = clip.duration - 0.25; });
+ await page.waitForFunction(() => {
+   const clip = document.querySelector('#mouse-preview');
+   return !clip.seeking && !clip.paused && clip.currentTime < 1;
+ });
+ check(await page.locator('.preview-toggle').innerText() === 'Pausar clipe','The muted preview autoplays and loops');
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.reload();
  await page.locator('.preview-toggle').click();
  await page.waitForFunction(() => {
    const clip = document.querySelector('#mouse-preview');

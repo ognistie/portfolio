@@ -49,9 +49,11 @@
  }));
  document.querySelectorAll('.cert-filter').forEach(button=>button.addEventListener('click',()=>{
    document.querySelectorAll('.cert-filter').forEach(b=>{b.classList.toggle('active',b===button);b.setAttribute('aria-pressed',b===button?'true':'false');});
-   let count=0;document.querySelectorAll('.cert-card').forEach(c=>{const issuer=c.dataset.certIssuer;const key=button.dataset.issuer;c.hidden=key==='other'?['AWS','Microsoft','IBM'].includes(issuer):key!=='all'&&key!==issuer;if(!c.hidden)count++;});
+   let count=0;document.querySelectorAll('.cert-card').forEach(c=>{const issuer=c.dataset.certIssuer;const key=button.dataset.issuer;c.hidden=key==='other'?['AWS','Microsoft','IBM','Databricks'].includes(issuer):key!=='all'&&key!==issuer;if(!c.hidden)count++;});
    document.querySelector('#cert-count').textContent=`${count} credenciais encontradas.`;
  }));
+
+ document.querySelector('[data-filter="all"] span').textContent = data.projects.length;
 
  const preview = document.querySelector('#mouse-preview');
  const previewToggle = document.querySelector('.preview-toggle');

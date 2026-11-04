@@ -299,11 +299,12 @@ body:has(.inner-page:not([hidden])) .world::after {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 3px;
   margin-bottom: 22px;
   background: #1c2830;
 }
+.library-card:has([data-project="maestro"], [data-project="workbench"]) .project-cover { object-position: center top; }
 .project-media { margin-bottom: 25px; }
 .project-media img, .project-media video {
   display: block;
@@ -434,9 +435,9 @@ body:has(.inner-page:not([hidden])) .world::after {
 @media (min-width: 1001px) {
   .landscape-stage { padding-top: clamp(8px, 2vh, 24px); min-height: 49vh; }
   .landscape-stage .dashboard {
-    width: min(74%, 1120px);
-    margin-inline: auto;
-    height: clamp(284px, 31vh, 335px);
+    width: min(84%, 1360px);
+    margin-inline: 4% auto;
+    height: clamp(300px, 34vh, 385px);
     grid-template-columns: minmax(0, .72fr) minmax(0, 2.5fr) minmax(0, 1.4fr);
     grid-template-rows: minmax(0, 2.4fr) minmax(84px, 1fr);
     gap: 7px;

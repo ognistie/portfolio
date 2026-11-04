@@ -53,14 +53,14 @@ h1,h2,h3,p {
   min-height:297mm;
   margin:0 auto 25px;
   background:#fffefb;
-  padding:17mm 17mm 18mm;
+  padding:13mm 17mm 16mm;
   box-shadow:0 5px 30px #23352a12;
   position:relative}
 
 .resume-header {
   border-bottom:2px solid #566e43;
   padding-bottom:17px;
-  margin-bottom:20px}
+  margin-bottom:14px}
 
 .resume-kicker {
   font-size:8px;
@@ -93,7 +93,7 @@ h1,h2,h3,p {
   text-underline-offset:3px}
 
 .resume-section {
-  margin-bottom:20px}
+  margin-bottom:13px}
 
 .resume-section>h2 {
   font-size:10px;
@@ -128,7 +128,7 @@ h1,h2,h3,p {
   font-size:10px}
 
 .resume-project {
-  margin:0 0 14px;
+  margin:0 0 9px;
   break-inside:avoid}
 
 .project-title {
@@ -187,13 +187,13 @@ h1,h2,h3,p {
   display:grid;
   grid-template-columns:1fr 1fr;
   column-gap:22px;
-  row-gap:10px}
+  row-gap:8px}
 
 .resume-cert {
   display:flex;
   gap:10px;
   align-items:center;
-  min-height:72px;
+  min-height:66px;
   break-inside:avoid;
   padding:5px 0;
   border-bottom:1px solid #e7e9e2}
@@ -303,6 +303,16 @@ h1,h2,h3,p {
 
 .resume-sheet:last-child {
   break-after:auto}
+
+.resume-project p {
+  line-height:1.45}
+
+.resume-section {
+  margin-bottom:10px}
+
+.resume-header {
+  margin-bottom:12px;
+  padding-bottom:12px}
 
 * {
   -webkit-print-color-adjust:exact;

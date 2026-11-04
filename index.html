@@ -7,8 +7,8 @@
   <meta name="description" content="Guilherme Moraes Franco, AI Engineer no Grupo Papaki. Engenharia de sistemas com LLMs, agentes de IA, visão computacional e arquitetura cloud. Projetos, experiência e certificações.">
   <title>Guilherme Moraes Franco · Portfólio</title>
   <link rel="icon" href="assets/orbit.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/limbo.webp" as="image">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="assets/mountain-lake.png" as="image">
+  <link rel="stylesheet" href="style.css?v=5">
   <script src="portfolio-data.js" defer></script><script src="script.js" defer></script>
 </head>
 <body>
@@ -21,17 +21,20 @@
 <main id="conteudo" class="shell">
   <section id="inicio" class="page home" aria-labelledby="home-title">
     <div class="home-heading"><div><p class="eyebrow">AI ENGINEERING · GENERATIVE AI · CLOUD</p><h1 id="home-title" tabindex="-1">Guilherme Moraes Franco</h1><p class="home-subtitle">Engenharia de sistemas com inteligência artificial.</p><p class="home-description">AI Engineer no Grupo Papaki. Desenvolvo agentes, aplicações com LLMs e automações, conectando engenharia de software, avaliação e infraestrutura cloud.</p></div><a class="session-label" href="curriculo.html">Perfil profissional <span>Ver currículo ↗</span></a></div>
+    <div class="landscape-stage">
     <div class="dashboard">
       <div class="quick-links" aria-label="Acesso rápido">
         <a href="#sobre" class="quick-tile quick-primary"><span data-icon="user"></span><span>Perfil</span><span class="external-label">↗</span></a>
         <a href="#stack" class="quick-tile"><span data-icon="layers"></span><span>Tecnologias</span></a>
         <a href="https://github.com/ognistie" target="_blank" rel="noopener noreferrer" class="quick-tile"><span data-icon="github"></span><span>github</span><span class="external-label">↗</span></a>
         <a href="https://www.linkedin.com/in/guilherme-moraes-franco-b4b1a0353/" target="_blank" rel="noopener noreferrer" class="quick-tile"><span class="linkedin-icon">in</span><span>linkedin</span><span class="external-label">↗</span></a>
+        <a class="all-projects" href="#projetos"><span data-icon="folder"></span><span>Todos os projetos</span><span>↗</span></a>
       </div>
-      <button class="project-tile tile-mouse" data-project="mouse"><img class="tile-image" src="assets/projects/mouse.webp" alt=""><span class="tile-topline">VISÃO COMPUTACIONAL</span><span class="tile-caption"><span><strong>AI Virtual Mouse Controller</strong><small>Controle gestual com processamento local.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></span></button>
+      <button class="project-tile tile-mouse" data-project="mouse"><video class="tile-image" id="mouse-preview" src="assets/projects/mouse-preview.mp4" poster="assets/projects/mouse-gestures.png" preload="metadata" muted playsinline aria-hidden="true"></video><span class="tile-topline">VISÃO COMPUTACIONAL</span><span class="tile-caption"><span><strong>AI Virtual Mouse Controller</strong><small>Controle gestual com processamento local.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></span></button>
       <button class="project-tile tile-farm" data-project="farm"><img class="tile-image" src="assets/projects/farm.webp" alt=""><span class="tile-topline">SISTEMAS MULTIAGENTE</span><span class="tile-caption"><span><strong>AI Farm Agent</strong><small>Orquestração e verificação de tarefas no Windows.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></span></button>
-      <button class="project-tile tile-u20" data-project="u20"><img class="tile-image" src="assets/projects/u20.webp" alt=""><span class="tile-topline">ACOMPANHAMENTO DE INVESTIMENTOS</span><span class="tile-caption"><span><strong>U20 Invest</strong><small>Painel de desempenho e histórico de operações.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></span></button>
-      <a class="all-projects" href="#projetos"><span data-icon="folder"></span><span>Todos os projetos</span><span>↗</span></a>
+      <button class="project-tile tile-u20" data-project="u20"><img class="tile-image" src="assets/projects/u20-logo.png" alt=""><span class="tile-topline">ACOMPANHAMENTO DE INVESTIMENTOS</span><span class="tile-caption"><span><strong>U20 Invest</strong><small>Painel de desempenho e histórico de operações.</small></span><span class="tile-arrow" aria-hidden="true">↗</span></span></button>
+      <button class="preview-toggle" type="button" aria-controls="mouse-preview">Reproduzir clipe</button>
+    </div>
     </div>
   </section>
   <section id="projetos" class="page inner-page" aria-labelledby="projects-title">

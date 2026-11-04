@@ -53,9 +53,20 @@
    document.querySelector('#cert-count').textContent=`${count} credenciais encontradas.`;
  }));
 
+ const preview = document.querySelector('#mouse-preview');
+ const previewToggle = document.querySelector('.preview-toggle');
+ previewToggle.addEventListener('click', async () => {
+   if (!preview.paused) { preview.pause(); return; }
+   try { await preview.play(); } catch { previewToggle.textContent = 'Clipe indisponível'; }
+ });
+ preview.addEventListener('play', () => { previewToggle.textContent = 'Pausar clipe'; });
+ for (const event of ['pause', 'ended']) {
+   preview.addEventListener(event, () => { previewToggle.textContent = 'Reproduzir clipe'; });
+ }
+ window.addEventListener('hashchange', () => { if (document.querySelector('#inicio').hidden) preview.pause(); });
  const projectDialog=document.querySelector('#project-dialog');
  const dialogReturnFocus=new WeakMap();
- function openDialog(dialog){dialogReturnFocus.set(dialog,document.activeElement);dialog.showModal();document.body.classList.add('scroll-locked');dialog.scrollTop=0;}
+ function openDialog(dialog){preview.pause();dialogReturnFocus.set(dialog,document.activeElement);dialog.showModal();document.body.classList.add('scroll-locked');dialog.scrollTop=0;}
  [projectDialog].forEach(dialog=>{
    dialog.querySelector('.close-dialog').addEventListener('click',()=>dialog.close());
    dialog.addEventListener('keydown',event=>{

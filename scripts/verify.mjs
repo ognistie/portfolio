@@ -15,6 +15,16 @@ async function images(){return page.locator('img:visible').evaluateAll(async img
 async function route(id){await page.evaluate(id=>{location.hash=id},id);await page.locator(`#${id}`).waitFor({state:'visible'});}
 try{
  await page.goto(base);check((await page.locator('.page:visible').count())===1,'One page visible');check((await images()).length===0,'Home images available');
+ const wallpaper = await page.locator('.world').evaluate(el => getComputedStyle(el).backgroundImage);
+ check(wallpaper.includes('mountain-lake.png') && (wallpaper.match(/url\(/g) || []).length === 1,'New landscape is the only wallpaper');
+ await page.locator('.preview-toggle').click();
+ await page.waitForFunction(() => {
+   const clip = document.querySelector('#mouse-preview');
+   return !clip.paused && clip.currentTime > 0;
+ });
+ check(Math.abs(await page.locator('#mouse-preview').evaluate(clip => clip.duration) - 10) < 0.1,'Home clip lasts ten seconds');
+ await page.locator('.preview-toggle').click();
+ check(await page.locator('#mouse-preview').evaluate(clip => clip.paused),'Home clip pauses');
  await page.screenshot({path:path.join(out,'desktop.png'),fullPage:true});
  await page.locator('.tile-u20').click();
  const video=page.locator('#project-dialog video');

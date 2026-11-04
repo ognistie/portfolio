@@ -302,7 +302,7 @@ body:has(.inner-page:not([hidden])) .world::after {
   margin-bottom: 22px;
   background: #1c2830;
 }
-.library-card:has([data-project="maestro"], [data-project="workbench"]) .project-cover { object-position: center top; }
+.library-card:has([data-project="workbench"]) .project-cover { object-position: center top; }
 .project-media { margin-bottom: 25px; }
 .project-media img, .project-media video {
   display: block;
@@ -434,20 +434,20 @@ body:has(.inner-page:not([hidden])) .world::after {
   .home-heading { padding-block: clamp(16px, 2.6vh, 34px) 18px; }
   .landscape-stage { min-height: 46vh; }
   .landscape-stage .dashboard {
-    width: clamp(680px, 58%, 850px);
-    margin-inline: 12% auto;
-    height: clamp(330px, 39vh, 450px);
-    grid-template-columns: minmax(108px, 1fr) minmax(0, 3.4fr) minmax(0, 1.85fr);
-    grid-template-rows: minmax(0, 2.15fr) minmax(96px, 1fr);
+    width: min(82%, 1160px);
+    margin-inline: auto;
+    height: clamp(365px, 48vh, 540px);
+    grid-template-columns: minmax(125px, 1.05fr) minmax(0, 3.45fr) minmax(0, 1.75fr);
+    grid-template-rows: minmax(0, 2.3fr) minmax(105px, 1fr);
     gap: 7px;
   }
   .landscape-stage .quick-links { gap: 4px; }
-  .landscape-stage .quick-tile, .landscape-stage .all-projects { padding: 4px 8px; font-size: 11px; gap: 6px; }
-  .landscape-stage .quick-links svg { width: 17px; height: 17px; }
-  .landscape-stage .tile-caption { padding-inline: 12px; }
-  .landscape-stage .tile-caption strong { font-size: 15px; }
-  .landscape-stage .tile-mouse .tile-caption strong { font-size: clamp(15px, 1.45vw, 22px); }
-  .landscape-stage .tile-caption small { font-size: 10px; margin-top: 3px; }
+  .landscape-stage .quick-tile, .landscape-stage .all-projects { padding: 8px 12px; font-size: 13px; gap: 8px; }
+  .landscape-stage .quick-links svg { width: 21px; height: 21px; }
+  .landscape-stage .tile-caption { padding-inline: 14px; }
+  .landscape-stage .tile-caption strong { font-size: 17px; }
+  .landscape-stage .tile-mouse .tile-caption strong { font-size: clamp(19px, 1.8vw, 26px); }
+  .landscape-stage .tile-caption small { font-size: 11px; margin-top: 3px; }
   .landscape-stage .tile-topline { margin: 5px; font-size: 7px; padding: 3px 5px; }
 }
 @media (max-width: 1000px) {

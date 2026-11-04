@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title">
+  <title id="title">SkateRoom, uma sessão de vídeos de skate em uma garagem virtual</title>
+  <defs>
+    <pattern id="bricks" width="104" height="56" patternUnits="userSpaceOnUse">
+      <path d="M0 0h104M0 28h104M52 0v28M0 28v28" fill="none" stroke="#f4ab81" stroke-opacity=".13" stroke-width="2"/>
+    </pattern>
+    <linearGradient id="wall" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#3c2538"/>
+      <stop offset="1" stop-color="#191829"/>
+    </linearGradient>
+    <linearGradient id="screen" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#b9e5bb"/>
+      <stop offset="1" stop-color="#618d83"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#wall)" d="M0 0h960v540H0z"/>
+  <path fill="url(#bricks)" d="M0 0h960v416H0z"/>
+  <path fill="#191721" d="M0 416h960v124H0z"/>
+  <path d="M0 468h960M0 510h960M180 540l198-124m396 124L580 416" stroke="#392d3b" stroke-width="3"/>
+  <g font-family="system-ui,sans-serif">
+    <text x="72" y="97" fill="#ffd692" font-size="18" font-weight="700" letter-spacing="4">WATCH PARTY</text>
+    <text x="68" y="174" fill="#fff2dc" font-size="65" font-weight="850" letter-spacing="-3">SkateRoom</text>
+    <text x="72" y="215" fill="#e0bfcd" font-size="21">Vídeos de skate em sincronia</text>
+    <rect x="72" y="248" width="225" height="36" rx="4" fill="#211c2c" stroke="#79576b"/>
+    <circle cx="92" cy="266" r="5" fill="#a9df9d"/>
+    <text x="108" y="271" fill="#e0f0d8" font-size="14" letter-spacing="1">CHAT E PRESENÇA AO VIVO</text>
+  </g>
+  <path d="M615 112l46 39 43-47" fill="none" stroke="#938091" stroke-width="5"/>
+  <rect x="468" y="147" width="416" height="248" rx="22" fill="#12121d" stroke="#775e77" stroke-width="5"/>
+  <rect x="486" y="166" width="355" height="208" rx="13" fill="url(#screen)"/>
+  <circle cx="862" cy="191" r="7" fill="#a9df9d"/>
+  <path d="M486 335h90l64-45 201 3v81H486z" fill="#536b62"/>
+  <path d="M503 345h75l66-46h173" fill="none" stroke="#d5e9bf" stroke-width="4"/>
+  <g fill="#25223a" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="684" cy="222" r="14"/>
+    <path d="m675 240-16 25 30 10m-26-17-28-11m44-4 34 10m-24 22-10 18m11-18 20 11" fill="none" stroke="#25223a" stroke-width="11"/>
+    <path d="m661 303 62-12" stroke="#f4b86b" stroke-width="7"/>
+    <circle cx="675" cy="305" r="5"/><circle cx="710" cy="298" r="5"/>
+  </g>
+  <path fill="#35263a" d="M448 395h453v23H448z"/>
+  <path fill="#512d49" d="M91 365h339v103H91z"/>
+  <path fill="#79425d" d="M83 385h362v67H83z"/>
+  <path fill="#a65a67" d="M72 407h384v47H72z"/>
+  <g shape-rendering="crispEdges">
+    <path fill="#eab583" d="M150 337h30v31h-30zM226 325h31v34h-31zM306 340h33v31h-33z"/>
+    <path fill="#292139" d="M143 327h42v13h-42zM221 316h41v15h-41zM300 329h45v13h-45z"/>
+    <path fill="#a5ba7e" d="M139 364h54v43h-54z"/>
+    <path fill="#efaa75" d="M214 356h55v51h-55z"/>
+    <path fill="#86a6c4" d="M294 368h57v39h-57z"/>
+  </g>
+</svg>

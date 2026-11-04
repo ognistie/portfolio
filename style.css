@@ -61,10 +61,10 @@ body:has(.inner-page:not([hidden])) .world::after {
 .text-link { font-size: 13px; color: #e0efcd; line-height: 1.6; }
 .text-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-.quick-tile { display: flex; align-items: center; gap: 15px; padding: 0 21px; background: linear-gradient(125deg, #7ba352ed, #527e3be8); border: 1px solid #c4df9e66; box-shadow: inset 0 1px 0 #e8ffd52e; transition: filter .2s, transform .2s; font-size: 16px; }
+.quick-tile { display: flex; align-items: center; gap: 15px; padding: 0 21px; background: linear-gradient(125deg, #658b41bd, #426c32b8); border: 1px solid #c4df9e66; box-shadow: inset 0 1px 0 #e8ffd52e; transition: filter .2s, transform .2s; font-size: 16px; text-shadow: 0 1px 3px #15200e; }
 .quick-tile:hover { filter: brightness(1.2); transform: translateX(-3px); }
 .quick-tile svg { width: 27px; height: 27px; }
-.quick-primary { background: linear-gradient(125deg, #89bb51, #65963c); border-color: #c9f39c99; }
+.quick-primary { background: linear-gradient(125deg, #79a547c9, #537e38bd); border-color: #c9f39c99; }
 .external-label { margin-left: auto; opacity: .7; font-size: 12px; }
 .linkedin-icon { font: bold 24px Arial, sans-serif; line-height: 1; letter-spacing: -1px; }
 .project-tile { overflow: hidden; text-align: left; position: relative; border: 1px solid #d9e7c27a; border-radius: 3px; box-shadow: var(--shadow); transition: transform .25s, box-shadow .25s; }
@@ -354,6 +354,7 @@ body:has(.inner-page:not([hidden])) .world::after {
 }
 .tile-farm .tile-image { background: #f4e4df; }
 .tile-u20 .tile-image { background: #0d0d0d; }
+.dashboard .tile-maestro { display: none; }
 .tile-topline {
   grid-area: 1 / 1;
   align-self: start;
@@ -386,11 +387,12 @@ body:has(.inner-page:not([hidden])) .world::after {
   gap: 10px;
   padding: 12px;
   border: 1px solid #c3dda870;
-  background: #3e6255;
+  background: #3e6255bd;
+  text-shadow: 0 1px 3px #15200e;
   font-size: 13px;
 }
 .all-projects > span:last-child { margin-left: auto; }
-.all-projects:hover { background: #547f69; }
+.all-projects:hover { background: #547f69d0; }
 @media (max-width: 800px) {
   .dashboard { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto auto auto auto; }
   .quick-links { grid-area: 1 / 1 / 2 / 3; grid-template: auto / repeat(2, minmax(0, 1fr)); }
@@ -433,24 +435,41 @@ body:has(.inner-page:not([hidden])) .world::after {
   .tile-u20 .tile-topline { display: none; }
 }
 @media (min-width: 1001px) {
-  .home-heading { padding-block: clamp(16px, 2.6vh, 34px) 18px; }
+  main.shell:has(#inicio:not([hidden])) { width: min(1600px, calc(100% - 88px)); }
+  .home-heading { padding-block: 20px 17px; }
   .landscape-stage { min-height: 46vh; }
   .landscape-stage .dashboard {
-    width: 96%;
+    width: 94%;
     margin-inline: auto;
-    height: clamp(420px, 59vh, 660px);
-    grid-template-columns: minmax(125px, 1.05fr) minmax(0, 3.45fr) minmax(0, 1.75fr);
-    grid-template-rows: minmax(0, 2.3fr) minmax(105px, 1fr);
-    gap: 7px;
+    height: clamp(465px, 62vh, 680px);
+    grid-template-columns: minmax(0, 1fr) repeat(2, minmax(0, 1.45fr)) minmax(0, 1.2fr);
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+    gap: 6px;
   }
+  .dashboard .tile-maestro { display: grid; grid-area: 2 / 4 / 4 / 5; }
+  .quick-links { grid-area: 1 / 1 / 4 / 2; }
+  .tile-mouse, .preview-toggle { grid-area: 1 / 2 / 3 / 4; }
+  .tile-farm { grid-area: 1 / 4 / 2 / 5; }
+  .tile-u20 { grid-area: 3 / 2 / 4 / 3; }
+  .all-projects { grid-area: 3 / 3 / 4 / 4; background: #527b42bd; }
+  .tile-maestro, .tile-u20 { grid-template: minmax(0, 1fr) / minmax(0, 1fr); }
+  .tile-maestro .tile-image, .tile-u20 .tile-image { grid-area: 1 / 1; }
+  .tile-maestro .tile-image { background: #f7f8f4; }
+  .tile-farm .tile-image, .tile-u20 .tile-image { object-fit: cover; }
+  .tile-maestro .tile-caption, .tile-u20 .tile-caption {
+    grid-area: 1 / 1;
+    align-self: end;
+    background: linear-gradient(transparent, #111c25 66%);
+  }
+  .tile-farm .tile-caption small, .tile-u20 .tile-caption small { display: none; }
   .landscape-stage .quick-links { gap: 4px; }
-  .landscape-stage .quick-tile, .landscape-stage .all-projects { padding: 8px 12px; font-size: 13px; gap: 8px; }
+  .landscape-stage .quick-tile, .landscape-stage .all-projects { padding: 16px; font-size: clamp(13px, 1vw, 16px); gap: 8px; }
   .landscape-stage .quick-links svg { width: 21px; height: 21px; }
-  .landscape-stage .tile-caption { padding-inline: 14px; }
-  .landscape-stage .tile-caption strong { font-size: 17px; }
-  .landscape-stage .tile-mouse .tile-caption strong { font-size: clamp(19px, 1.8vw, 26px); }
-  .landscape-stage .tile-caption small { font-size: 11px; margin-top: 3px; }
-  .landscape-stage .tile-topline { margin: 5px; font-size: 7px; padding: 3px 5px; }
+  .landscape-stage .tile-caption { padding: 22px 16px 13px; }
+  .landscape-stage .tile-caption strong { font-size: clamp(16px, 1.4vw, 22px); }
+  .landscape-stage .tile-mouse .tile-caption strong { font-size: clamp(20px, 1.9vw, 30px); }
+  .landscape-stage .tile-caption small { font-size: 13px; margin-top: 3px; }
+  .landscape-stage .tile-topline { margin: 8px; font-size: 9px; padding: 3px 5px; }
 }
 @media (max-width: 1000px) {
   .landscape-stage .dashboard { margin: 12px auto 0; }

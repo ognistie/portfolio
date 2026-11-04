@@ -84,7 +84,7 @@ body:has(.inner-page:not([hidden])) .world::after {
 .filter-bar button:hover { border-color: #b6c9bc; }
 .filter-bar button span { margin-left: 9px; color: #c5d2ca; }
 .project-library { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-.library-card { position: relative; display: flex; flex-direction: column; padding: 28px; min-height: 285px; background: #26383de8; border: 1px solid #d0e0d733; border-radius: 3px; }
+.library-card { position: relative; display: flex; flex-direction: column; padding: 28px; min-height: 285px; border: 1px solid #d0e0d733; border-radius: 3px; }
 .library-card:hover { border-color: #a5c2af; }
 .card-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; color: #b9cec0; margin-bottom: 27px; }
 .card-head svg { width: 30px; height: 30px; }
@@ -190,7 +190,7 @@ body:has(.inner-page:not([hidden])) .world::after {
 
 
 .glass { backdrop-filter: blur(16px); }
-.library-card { background: linear-gradient(135deg, #384c50e8, #293640ed); transition: transform .2s, border-color .2s; }
+.library-card { background: linear-gradient(135deg, #384c50a6, #293640b8); transition: transform .2s, border-color .2s; }
 .library-card:hover { transform: translateY(-4px); border-color: var(--lime); }
 .filter-bar button.active { background: #8eb95cdd; border-color: #cef0a599; }
 .professional-card.player-card { display: block; text-align: center; background: radial-gradient(ellipse at center, #a2c89929, #283b42b8); padding: 20px 20px 30px; }
@@ -441,7 +441,7 @@ body:has(.inner-page:not([hidden])) .world::after {
     height: 100svh;
     min-height: 0;
   }
-  body:has(#inicio:not([hidden])):not(:has(.inner-page:not([hidden]))) .world { background-size: auto, contain; }
+  body:has(#inicio:not([hidden])):not(:has(.inner-page:not([hidden]))) .world { background-position: center, center bottom; }
   main.shell:has(#inicio:not([hidden])) { flex: 1; min-height: 0; }
   main:has(#inicio:not([hidden])), #inicio, .landscape-stage { display: flex; flex-direction: column; }
   #inicio, .landscape-stage { flex: 1; min-height: 0; }

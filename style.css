@@ -489,9 +489,5 @@ body:has(.inner-page:not([hidden])) .world::after {
   .landscape-stage .dashboard { height: 420px; }
 }
 @media (max-width: 800px) {
-  .world {
-    background-position: center bottom;
-    background-size: auto, 100% auto;
-  }
   .preview-toggle { grid-area: 2 / 1 / 3 / 3; }
 }
